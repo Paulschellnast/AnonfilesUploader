@@ -1,5 +1,6 @@
 import requests
 import pyfiglet
+url = 'https://api.anonfiles.com/upload'
 ascii_banner = pyfiglet.figlet_format("ANONFILES UPLOADER")
 print(ascii_banner)
 print("1: Getting information from a file")
