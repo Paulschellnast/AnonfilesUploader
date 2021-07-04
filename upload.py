@@ -1,6 +1,7 @@
 import requests
-import json
-url = 'https://api.anonfiles.com/upload'
+import pyfiglet
+ascii_banner = pyfiglet.figlet_format("ANONFILES UPLOADER")
+print(ascii_banner)
 print("1: Getting information from a file")
 print("2: Upload a file")
 y = input("Choose option: ")
