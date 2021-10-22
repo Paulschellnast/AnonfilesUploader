@@ -2,14 +2,6 @@
 Basic anonfiles.com uploader
 
 (DOES NOT SUPPORT FILES OVER 2GB IN SIZE)
-## REQUIREMENTS
-
-- pyfiglet
-
-How to Install:
-
-1. pip install pyfiglet
-2. python upload.py
 
 ## Upload Files Server Side via Google Drive to anonfiles.com
 
