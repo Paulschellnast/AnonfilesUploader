@@ -1,22 +1,19 @@
+import random
 import requests
-import pyfiglet
-url = 'https://api.anonfiles.com/upload'
-ascii_banner = pyfiglet.figlet_format("ANONFILES UPLOADER")
-print(ascii_banner)
-print("1: Getting information from a file")
-print("2: Upload a file")
-y = input("Choose option: ")
-if y == "2":
-    filepath = input("Enter filepath:")
-    print("filepath is: " + filepath)
-    x = requests.post(url, files = {'file': open(filepath,'rb')},)
-    print("DOWNLOAD LINK: " + x.json()["data"]["file"]["url"]["full"])
-if y == "1":
-    fileinfo = input("Enter file ID: ")
-    print('https://api.anonfiles.com/v2/file/'+fileinfo+'/info')
-    headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Brave Chrome/91.0.4472.124 Safari/537.36',
-    'From': 'petersars@gmail.com'  
-    }
-    z = requests.get('https://api.anonfiles.com/v2/file/'+fileinfo+'/info', headers=headers)
-    print(z.json())
+
+print("1: Getting information from a file\n2: Upload a file")
+choice = input("Choose option: ")
+
+if choice == "1":
+
+    ID = input("Enter file ID: ")
+    random_ua = str(random.choice(list(set(requests.get("https://raw.githubusercontent.com/DavidWittman/requests-random-user-agent/master/requests_random_user_agent/useragents.txt").content.decode().splitlines()))))
+    headers = {'User-Agent': random_ua, 'From': 'petersars@gmail.com'}
+    response = requests.get(f'https://api.anonfiles.com/v2/file/{ID}/info', headers=headers)
+    print(response.json())
+
+elif choice == "2":
+
+    filepath = input("Enter filepath: ")
+    response = requests.post('https://api.anonfiles.com/upload', files = {'file': open(filepath,'rb')})
+    print("DOWNLOAD LINK: " + response.json()["data"]["file"]["url"]["full"])
