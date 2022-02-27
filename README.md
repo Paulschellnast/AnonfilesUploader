@@ -10,3 +10,9 @@ Basic anonfiles.com uploader
 3. Enjoy
 
 4m16s for uploading a 1.96GB File via Colab
+
+## How to use GUI version
+
+Install PySimpleGUI:
+
+pip install pysimplegui

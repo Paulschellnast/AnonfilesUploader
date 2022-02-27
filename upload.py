@@ -11,9 +11,10 @@ if choice == "1":
     headers = {'User-Agent': random_ua, 'From': 'petersars@gmail.com'}
     response = requests.get(f'https://api.anonfiles.com/v2/file/{ID}/info', headers=headers)
     print(response.json())
-
+    print()
 elif choice == "2":
 
     filepath = input("Enter filepath: ")
     response = requests.post('https://api.anonfiles.com/upload', files = {'file': open(filepath,'rb')})
     print("DOWNLOAD LINK: " + response.json()["data"]["file"]["url"]["full"])
+
