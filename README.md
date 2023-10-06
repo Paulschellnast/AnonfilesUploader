@@ -1,3 +1,8 @@
+# RIP ANONFILES
+
+
+
+
 # AnonfilesUploader
 Basic anonfiles.com uploader
 
